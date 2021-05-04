@@ -9,7 +9,10 @@
 ## API 가이드
 * [소개](apis/README.md)
 * v1
-    * 메시지
+    * 로그인 연동
+        * [1. Query string 연동 방식](apis/v1/device/login/query-string.md)
+        * [2. API 호출 방식](apis/v1/device/login/api.md)
+    * 메시지 발송 연동
         * [전체 발송](apis/v1/message/broadcast.md)
         * [개별 발송](apis/v1/message/unicast.md)
 
