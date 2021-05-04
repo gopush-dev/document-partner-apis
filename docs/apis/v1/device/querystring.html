@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>개별 발송 · GitBook</title>
+        <title>1. Query string 연동 방식 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,8 +57,8 @@
     <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="api.html" />
     
-    <link rel="prev" href="broadcast.html" />
     
 
     </head>
@@ -170,9 +170,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="3.2.1.1" data-path="../device/querystring.html">
+        <li class="chapter active" data-level="3.2.1.1" data-path="querystring.html">
             
-                <a href="../device/querystring.html">
+                <a href="querystring.html">
             
                     
                     1. Query string 연동 방식
@@ -183,9 +183,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.2.1.2" data-path="../device/api.html">
+        <li class="chapter " data-level="3.2.1.2" data-path="api.html">
             
-                <a href="../device/api.html">
+                <a href="api.html">
             
                     
                     2. API 호출 방식
@@ -215,9 +215,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="3.2.2.1" data-path="broadcast.html">
+        <li class="chapter " data-level="3.2.2.1" data-path="../message/broadcast.html">
             
-                <a href="broadcast.html">
+                <a href="../message/broadcast.html">
             
                     
                     전체 발송
@@ -228,9 +228,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.2.2.2" data-path="unicast.html">
+        <li class="chapter " data-level="3.2.2.2" data-path="../message/unicast.html">
             
-                <a href="unicast.html">
+                <a href="../message/unicast.html">
             
                     
                     개별 발송
@@ -281,7 +281,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../.." >개별 발송</a>
+        <a href="../../.." >1. Query string 연동 방식</a>
     </h1>
 </div>
 
@@ -296,43 +296,32 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#xC804;&#xCCB4;-&#xBC1C;&#xC1A1;">&#xC804;&#xCCB4; &#xBC1C;&#xC1A1;</h1>
-<p>&#xD2B9;&#xC815; &#xB514;&#xBC14;&#xC774;&#xC2A4;&#xC5D0; &#xC54C;&#xB9BC;&#xC744; &#xBC1C;&#xC1A1;&#xD569;&#xB2C8;&#xB2E4;. </p>
-<pre><code>POST https://partner-api.gopush.app
-
-Header
-- Content-Type: application/json
-- Accept: application/json
-</code></pre><h2 id="&#xC694;&#xCCAD;-&#xC608;&#xC2DC;">&#xC694;&#xCCAD; &#xC608;&#xC2DC;</h2>
-<p> <code>project_id</code> &#xC640; <code>api_key</code> &#xC5D0; &#xBC1C;&#xAE09;&#xBC1B;&#xC740; &#xC815;&#xBCF4;&#xB97C; &#xC785;&#xB825;&#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.
- <code>to</code> &#xC5D0;&#xB294; &#xC720;&#xC800;&#xC758; &#xC544;&#xC774;&#xB514;&#xB97C; &#xC785;&#xB825;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<pre><code>{    
-    &quot;id&quot;:1,     
-    &quot;jsonrpc&quot;:&quot;2.0&quot;,
-    &quot;method&quot;:&quot;Message.Unicast&quot;,     
-    &quot;params&quot;:{
-            &quot;project_id&quot;: &quot;&quot;,
-            &quot;api_key&quot;: &quot;&quot;,
-            &quot;to&quot;: &quot;&quot;,
-            &quot;payload&quot;: {
-                &quot;title&quot;: &quot;&#xC81C;&#xBAA9;&quot;,
-                &quot;body&quot;: &quot;&#xB0B4;&#xC6A9;&#xC785;&#xB2C8;&#xB2E4;!!&quot;,
-                &quot;open_url&quot;: &quot;&quot;,
-                &quot;image_url&quot;: &quot;&quot;,
-                &quot;sound_url&quot;: &quot;&quot;,
-                &quot;priority&quot;: &quot;HIGH&quot;
-            }
-    }
-}
-</code></pre><h2 id="&#xC751;&#xB2F5;&#xAC12;-&#xC608;">&#xC751;&#xB2F5;&#xAC12; &#xC608;</h2>
-<pre><code class="lang-json">{
-  <span class="hljs-string">&quot;jsonrpc&quot;</span>: <span class="hljs-string">&quot;2.0&quot;</span>,
-  <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">1</span>,
-  <span class="hljs-string">&quot;result&quot;</span>: {
-    <span class="hljs-string">&quot;message_id&quot;</span>: <span class="hljs-number">2855</span>
-  }
-}
-</code></pre>
+                                <h1 id="query-string-&#xC5F0;&#xB3D9;&#xBC29;&#xC2DD;">Query string &#xC5F0;&#xB3D9;&#xBC29;&#xC2DD;</h1>
+<p>&#xAC00;&#xC7A5; &#xB2E8;&#xC21C;&#xD55C; &#xBC29;&#xC2DD;&#xC785;&#xB2C8;&#xB2E4;. </p>
+<p>&#xC544;&#xB798;&#xC640; &#xAC19;&#xC774; &#xB300;&#xCE6D;&#xD0A4; &#xC554;&#xD638;&#xD654;&#xAC00; &#xC801;&#xC6A9;&#xB41C; <code>user_id</code> &#xB97C; &#xC804;&#xB2EC;&#xD574;&#xC8FC;&#xC2DC;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<p>(&#xC554;&#xD638;&#xD654;&#xD558;&#xC9C0; &#xC54A;&#xB294; &#xBC29;&#xC2DD;&#xB3C4; &#xAC00;&#xB2A5;&#xD558;&#xC9C0;&#xB9CC; &#xBCF4;&#xC548;&#xC5D0; &#xBB38;&#xC81C;&#xAC00; &#xC0DD;&#xAE38; &#xC218; &#xC788;&#xC74C;) </p>
+<pre><code>gopush://?method=login&amp;user_id=2323929d02101d91023912039d19230
+</code></pre><h1 id="&#xC5F0;&#xB3D9;-&#xB2E8;&#xACC4;">&#xC5F0;&#xB3D9; &#xB2E8;&#xACC4;</h1>
+<h2 id="0-&#xC5F0;&#xB3D9;-&#xC815;&#xBCF4;-&#xC694;&#xCCAD;">0. &#xC5F0;&#xB3D9; &#xC815;&#xBCF4; &#xC694;&#xCCAD;</h2>
+<ul>
+<li>key: AES256 &#xC54C;&#xACE0;&#xB9AC;&#xC998;&#xC5D0; &#xC0AC;&#xC6A9;&#xD560; &#xB300;&#xCE6D;&#xD0A4;</li>
+<li>salt: &#xC554;&#xD638;&#xD654; &#xC774;&#xC804; user_id &#xC55E;&#xC5D0; &#xBD99;&#xC77C; prefix &#xC815;&#xBCF4;</li>
+</ul>
+<h2 id="1-&#xB85C;&#xADF8;&#xC778;&#xD55C;-&#xC720;&#xC800;-id-&#xC554;&#xD638;&#xD654;&#xCD5C;&#xC2E0;">1. &#xB85C;&#xADF8;&#xC778;&#xD55C; &#xC720;&#xC800; ID &#xC554;&#xD638;&#xD654;(&#xCD5C;&#xC2E0;)</h2>
+<p>&#xB85C;&#xADF8;&#xC778;&#xD55C; &#xC720;&#xC800; ID &#xC55E;&#xC5D0; Prefix &#xB97C; &#xBD99;&#xC774;&#xACE0;, AES256 &#xC54C;&#xACE0;&#xB9AC;&#xC998;&#xC744; &#xC774;&#xC6A9;&#xD574; &#xC554;&#xD638;&#xD654;&#xD569;&#xB2C8;&#xB2E4;. </p>
+<pre><code>// ex) AES256(&apos;testapp&apos; + &apos;tester&apos;, key)
+const user_id = AES256(&apos;Prefix&apos; + user_id, key)
+</code></pre><h2 id="2-&#xB85C;&#xADF8;&#xC778;-&#xBA54;&#xC11C;&#xB4DC;-&#xD638;&#xCD9C;">2. &#xB85C;&#xADF8;&#xC778; &#xBA54;&#xC11C;&#xB4DC; &#xD638;&#xCD9C;</h2>
+<p>location &#xC744; &#xBC14;&#xAFB8;&#xB294; &#xBC29;&#xBC95;&#xC740; &#xC5EC;&#xB7EC;&#xAC00;&#xC9C0;&#xAC00; &#xC788;&#xACA0;&#xC9C0;&#xB9CC; &#xC544;&#xB798; &#xC608;&#xC2DC;&#xC5D0;&#xC11C;&#xB294; location.href&#xB97C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<p>&#xC55E;&#xC11C; &#xC554;&#xD638;&#xD654;&#xD55C; <code>user_id</code> &#xB97C; &#xC571;&#xC5D0; &#xC804;&#xB2EC;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<pre><code>location.href =  gopush://?method=login&amp;user_id=2323929d02101d91023912039d19230
+</code></pre><h2 id="3-&#xC5F0;&#xB3D9;-&#xC644;&#xB8CC;">3. &#xC5F0;&#xB3D9; &#xC644;&#xB8CC;</h2>
+<h1 id="&#xC8FC;&#xC758;&#xD560;-&#xC810;">&#xC8FC;&#xC758;&#xD560; &#xC810;</h1>
+<h2 id="1-&#xC554;&#xD638;&#xD654;-&#xD0A4;-salt-&#xB97C;-&#xC228;&#xACA8;&#xC8FC;&#xC138;&#xC694;">1. &#xC554;&#xD638;&#xD654; &#xD0A4;, Salt &#xB97C; &#xC228;&#xACA8;&#xC8FC;&#xC138;&#xC694;</h2>
+<p>&#xC554;&#xD638;&#xD654; &#xD0A4;&#xB098; Salt&#xAC00; &#xC720;&#xCD9C;&#xB41C;&#xB2E4;&#xBA74; &#xBCF4;&#xC548;&#xC5D0; &#xBB38;&#xC81C;&#xAC00; &#xC0DD;&#xAE30;&#xC2E4; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<ul>
+<li>&#xC11C;&#xBC84;&#xC0AC;&#xC774;&#xB4DC; &#xB80C;&#xB354;&#xB9C1; </li>
+</ul>
 
                                 
                                 </section>
@@ -360,10 +349,10 @@ Header
 
             
                 
-                <a href="broadcast.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 전체 발송">
-                    <i class="fa fa-angle-left"></i>
-                </a>
                 
+                <a href="api.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 2. API 호출 방식">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -372,7 +361,7 @@ Header
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"개별 발송","level":"3.2.2.2","depth":3,"previous":{"title":"전체 발송","level":"3.2.2.1","depth":3,"path":"apis/v1/message/broadcast.md","ref":"apis/v1/message/broadcast.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":10,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"apis/v1/message/unicast.md","mtime":"2021-05-03T16:34:08.512Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-04T07:24:15.152Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1. Query string 연동 방식","level":"3.2.1.1","depth":3,"next":{"title":"2. API 호출 방식","level":"3.2.1.2","depth":3,"path":"apis/v1/device/api.md","ref":"apis/v1/device/api.md","articles":[]},"previous":{"title":"로그인 연동","level":"3.2.1","depth":2,"ref":"","articles":[{"title":"1. Query string 연동 방식","level":"3.2.1.1","depth":3,"path":"apis/v1/device/querystring.md","ref":"apis/v1/device/querystring.md","articles":[]},{"title":"2. API 호출 방식","level":"3.2.1.2","depth":3,"path":"apis/v1/device/api.md","ref":"apis/v1/device/api.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":10,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"apis/v1/device/querystring.md","mtime":"2021-05-04T07:17:52.253Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-04T07:24:15.152Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>
