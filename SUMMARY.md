@@ -13,6 +13,7 @@
         * [1. Query string 연동 방식](apis/v1/device/querystring.md)
         * [2. API 호출 방식](apis/v1/device/api.md)
     * 메시지 발송 연동
+        * [구조](apis/v1/message/payload.md)
         * [전체 발송](apis/v1/message/broadcast.md)
         * [개별 발송](apis/v1/message/unicast.md)
 

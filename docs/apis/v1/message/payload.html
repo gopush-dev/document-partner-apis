@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>전체 발송 · GitBook</title>
+        <title>구조 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="unicast.html" />
+    <link rel="next" href="broadcast.html" />
     
-    
-    <link rel="prev" href="payload.html" />
     
 
     </head>
@@ -217,7 +215,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="3.2.2.1" data-path="payload.html">
+        <li class="chapter active" data-level="3.2.2.1" data-path="payload.html">
             
                 <a href="payload.html">
             
@@ -230,7 +228,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.2.2.2" data-path="broadcast.html">
+        <li class="chapter " data-level="3.2.2.2" data-path="broadcast.html">
             
                 <a href="broadcast.html">
             
@@ -296,7 +294,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../.." >전체 발송</a>
+        <a href="../../.." >구조</a>
     </h1>
 </div>
 
@@ -311,15 +309,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#xC804;&#xCCB4;-&#xBC1C;&#xC1A1;">&#xC804;&#xCCB4; &#xBC1C;&#xC1A1;</h1>
-<p>&#xBAA8;&#xB4E0; &#xB514;&#xBC14;&#xC774;&#xC2A4;&#xC5D0; &#xC54C;&#xB9BC;&#xC744; &#xBC1C;&#xC1A1;&#xD569;&#xB2C8;&#xB2E4;. </p>
-<pre><code>POST https://partner-api.gopush.app
-
-Header
-- Content-Type: application/json
-- Accept: application/json
-</code></pre><h2 id="&#xC694;&#xCCAD;-&#xC608;&#xC2DC;">&#xC694;&#xCCAD; &#xC608;&#xC2DC;</h2>
-<p> <code>project_id</code> &#xC640; <code>api_key</code> &#xC5D0; &#xBC1C;&#xAE09;&#xBC1B;&#xC740; &#xC815;&#xBCF4;&#xB97C; &#xC785;&#xB825;&#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</p>
+                                <h1 id="&#xC804;&#xCCB4;-&#xAD6C;&#xC870;">&#xC804;&#xCCB4; &#xAD6C;&#xC870;</h1>
 <pre><code>{    
     &quot;id&quot;:1,     
     &quot;jsonrpc&quot;:&quot;2.0&quot;,
@@ -337,15 +327,69 @@ Header
             }
     }
 }
-</code></pre><h2 id="&#xC751;&#xB2F5;&#xAC12;-&#xC608;">&#xC751;&#xB2F5;&#xAC12; &#xC608;</h2>
-<pre><code class="lang-json">{
-  <span class="hljs-string">&quot;jsonrpc&quot;</span>: <span class="hljs-string">&quot;2.0&quot;</span>,
-  <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">1</span>,
-  <span class="hljs-string">&quot;result&quot;</span>: {
-    <span class="hljs-string">&quot;message_id&quot;</span>: <span class="hljs-number">2855</span>
-  }
-}
-</code></pre>
+</code></pre><h1 id="payload">Payload</h1>
+<table>
+<thead>
+<tr>
+<th>&#xC774;&#xB984;</th>
+<th>type</th>
+<th>required</th>
+<th>&#xC608;&#xC2DC;</th>
+<th>&#xC124;&#xBA85;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>v</td>
+<td>&#xC54C;&#xB9BC;</td>
+<td></td>
+</tr>
+<tr>
+<td>body</td>
+<td>string</td>
+<td>v</td>
+<td>&#xC0C8;&#xB85C;&#xC6B4; &#xBA54;&#xC2DC;&#xC9C0;&#xAC00; &#xB3C4;&#xCC29;&#xD588;&#xC2B5;&#xB2C8;&#xB2E4;.</td>
+<td></td>
+</tr>
+<tr>
+<td>open_url</td>
+<td>string</td>
+<td>v</td>
+<td><a href="https://test.com/" target="_blank">https://test.com/</a></td>
+<td></td>
+</tr>
+<tr>
+<td>image_url</td>
+<td>string</td>
+<td>v</td>
+<td><a href="https://test.com/sample.png" target="_blank">https://test.com/sample.png</a></td>
+<td></td>
+</tr>
+<tr>
+<td>sound_url</td>
+<td>string</td>
+<td>v</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>priority</td>
+<td><code>HIGH</code></td>
+<td>v</td>
+<td>HIGH</td>
+<td></td>
+</tr>
+<tr>
+<td>sound_type</td>
+<td><code>Message</code> or <code>Call</code></td>
+<td></td>
+<td>Call</td>
+<td>&#xC0AC;&#xC6A9;&#xD558;&#xC9C0; &#xC54A;&#xC73C;&#xBA74; &#xBCF4;&#xB0B4;&#xC9C0; &#xB9C8;&#xC138;&#xC694;</td>
+</tr>
+</tbody>
+</table>
 
                                 
                                 </section>
@@ -373,12 +417,8 @@ Header
 
             
                 
-                <a href="payload.html" class="navigation navigation-prev " aria-label="Previous page: 구조">
-                    <i class="fa fa-angle-left"></i>
-                </a>
                 
-                
-                <a href="unicast.html" class="navigation navigation-next " aria-label="Next page: 개별 발송">
+                <a href="broadcast.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 전체 발송">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -389,7 +429,7 @@ Header
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"전체 발송","level":"3.2.2.2","depth":3,"next":{"title":"개별 발송","level":"3.2.2.3","depth":3,"path":"apis/v1/message/unicast.md","ref":"apis/v1/message/unicast.md","articles":[]},"previous":{"title":"구조","level":"3.2.2.1","depth":3,"path":"apis/v1/message/payload.md","ref":"apis/v1/message/payload.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":10,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"apis/v1/message/broadcast.md","mtime":"2021-05-09T19:36:22.236Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-09T19:44:24.924Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"구조","level":"3.2.2.1","depth":3,"next":{"title":"전체 발송","level":"3.2.2.2","depth":3,"path":"apis/v1/message/broadcast.md","ref":"apis/v1/message/broadcast.md","articles":[]},"previous":{"title":"메시지 발송 연동","level":"3.2.2","depth":2,"ref":"","articles":[{"title":"구조","level":"3.2.2.1","depth":3,"path":"apis/v1/message/payload.md","ref":"apis/v1/message/payload.md","articles":[]},{"title":"전체 발송","level":"3.2.2.2","depth":3,"path":"apis/v1/message/broadcast.md","ref":"apis/v1/message/broadcast.md","articles":[]},{"title":"개별 발송","level":"3.2.2.3","depth":3,"path":"apis/v1/message/unicast.md","ref":"apis/v1/message/unicast.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":10,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"apis/v1/message/payload.md","mtime":"2021-05-09T19:43:27.148Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-09T19:44:24.924Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>
